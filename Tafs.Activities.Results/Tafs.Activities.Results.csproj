@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+      <TargetFramework>net461</TargetFramework>
+	  <PackageVersion>3.0.2</PackageVersion>
+	  <Description>A basic implementation of a descriptive algebraic data type for C#. Remora.Results, but for NetFx.</Description>
+	  <PackageReleaseNotes>Bug fixes for some FromError methods.</PackageReleaseNotes>
+	  <PackageTags>$(PackageTags);algebraic datatype;result;results</PackageTags>
+  </PropertyGroup>
+
+</Project>
