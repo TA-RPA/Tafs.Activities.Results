@@ -25,7 +25,7 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         
     - name: Build App
-      run: dotnet build Tafs.Activities.sln --configuration Release
+      run: dotnet build Tafs.Activities.Results.sln --configuration Release
         
     - name: Publish NuGet
       working-directory: nuget
