@@ -1,0 +1,32 @@
+# This workflow pushes builds to the private github nuget repo on a push or merge.
+
+name: NuGet Update
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: Update NuGet Package
+    steps:
+    
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.9.0
+      with:
+        # Optional package source for which to set up authentication. Will consult any existing NuGet.config in the root of the repo and provide a temporary NuGet.config using the NUGET_AUTH_TOKEN environment variable as a ClearTextPassword
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
+    - name: Build App
+      run: dotnet build Tafs.Activities.sln --configuration Release
+        
+    - name: Publish NuGet
+      working-directory: nuget
+      run: dotnet nuget push *.nupkg --skip-duplicate
