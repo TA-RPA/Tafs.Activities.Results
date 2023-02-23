@@ -2,9 +2,9 @@
 
   <PropertyGroup>
       <TargetFramework>net461</TargetFramework>
-	  <PackageVersion>3.0.2</PackageVersion>
+	  <PackageVersion>3.0.4</PackageVersion>
 	  <Description>A basic implementation of a descriptive algebraic data type for C#. Remora.Results, but for NetFx.</Description>
-	  <PackageReleaseNotes>Bug fixes for some FromError methods.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Set maximum target version.</PackageReleaseNotes>
 	  <PackageTags>$(PackageTags);algebraic datatype;result;results</PackageTags>
   </PropertyGroup>
 
