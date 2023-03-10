@@ -14,7 +14,7 @@ jobs:
     steps:
     
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3.3.0
       
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v3.0.3
@@ -23,6 +23,9 @@ jobs:
         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
+    - name: Add UiPath Source
+      run: dotnet nuget add source https://gallery.uipath.com/api/v3/index.json
         
     - name: Build App
       run: dotnet build Tafs.Activities.Results.sln --configuration Release
