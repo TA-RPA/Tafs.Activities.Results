@@ -15,19 +15,32 @@ namespace Tafs.Activities.Results.Errors
     public sealed class UploadError : ResultError
     {
         /// <summary>
-        /// Gets a count that records the number of documents that were properly uploaded.
+        /// Gets the number of documents that were properly uploaded.
         /// </summary>
         public int DocumentsUploaded { get; }
 
         /// <summary>
+        /// Gets the number of documents that should have been uploaded.
+        /// </summary>
+        public int ExpectedDocumentsCount { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="UploadError"/> class.
         /// </summary>
-        /// <param name="documentsUploaded">A count that records the number of documents that were properly uploaded.</param>
+        /// <param name="documentsUploaded">The number of documents that were properly uploaded.</param>
         /// <param name="message">Error Message.</param>
-        public UploadError(int documentsUploaded, string message)
+        /// <param name="expectedDocumentsCount">The number of documents that should have been uploaded.</param>
+        public UploadError(int documentsUploaded, string message, int expectedDocumentsCount = 0)
             : base(message)
         {
-            this.DocumentsUploaded = documentsUploaded;
+            DocumentsUploaded = documentsUploaded;
+            ExpectedDocumentsCount = expectedDocumentsCount;
+        }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return $"Uploaded {DocumentsUploaded}{(ExpectedDocumentsCount > 0 ? $"/{ExpectedDocumentsCount}" : string.Empty)} documents: {Message}";
         }
     }
 }
