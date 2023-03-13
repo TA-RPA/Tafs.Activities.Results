@@ -18,26 +18,47 @@ namespace Tafs.Activities.Results.Errors
     /// <summary>
     /// Represents a final status as reported to the Verification Portal endpoint.
     /// </summary>
-    public enum VerificationPortalStatus
+    public sealed class VerificationPortalStatus
     {
         /// <summary>
         /// The record was verified successfully.
         /// </summary>
-        Verified,
+        public static readonly VerificationPortalStatus Verified = new VerificationPortalStatus(nameof(Verified));
 
         /// <summary>
         /// The record was not found or the client did not match.
         /// </summary>
-        RejectedFraud,
+        public static readonly VerificationPortalStatus RejectedFraud = new VerificationPortalStatus("Rejected - Fraud");
 
         /// <summary>
         /// The invoice was found but the amount did not match.
         /// </summary>
-        RejectedPaymentIssue,
+        public static readonly VerificationPortalStatus RejectedPaymentIssue = new VerificationPortalStatus("Rejected - Payment Issue");
 
         /// <summary>
         /// A bot exception occurred.
         /// </summary>
-        Exception
+        public static readonly VerificationPortalStatus BotException = new VerificationPortalStatus("Bot Exception");
+
+        /// <summary>
+        /// A business exception occurred.
+        /// </summary>
+        public static readonly VerificationPortalStatus BusinessException = new VerificationPortalStatus("Business Exception");
+
+        /// <summary>
+        /// Gets the internal message used for writing to the endpoint.
+        /// </summary>
+        public string Message { get; }
+
+        private VerificationPortalStatus(string message)
+        {
+            Message = message;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            return Message;
+        }
     }
 }

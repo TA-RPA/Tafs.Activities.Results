@@ -90,14 +90,6 @@ namespace Tafs.Activities.Results
             => new Result(new ExceptionError(exception), default);
 
         /// <summary>
-        /// Converts a <see cref="SalesforceStatus"/> into a result.
-        /// </summary>
-        /// <param name="salesforceStatus">The <see cref="SalesforceStatus"/> returned from the endpoint.</param>
-        /// <returns>The result.</returns>
-        public static Result FromFailedSalesforceStatus(SalesforceStatus salesforceStatus)
-            => new Result(new SalesforceError(salesforceStatus), default);
-
-        /// <summary>
         /// Converts an error into a failed result.
         /// </summary>
         /// <param name="error">The error.</param>
@@ -225,14 +217,6 @@ namespace Tafs.Activities.Results
         /// <returns>The failed result.</returns>
         public static Result<TEntity> FromException(Exception exception)
             => new Result<TEntity>(default, new ExceptionError(exception), default);
-
-        /// <summary>
-        /// Converts a <see cref="SalesforceStatus"/> into a result.
-        /// </summary>
-        /// <param name="salesforceStatus">The <see cref="SalesforceStatus"/> returned from the endpoint.</param>
-        /// <returns>The result.</returns>
-        public static Result<TEntity> FromFailedSalesforceStatus(SalesforceStatus salesforceStatus)
-            => new Result<TEntity>(default, new SalesforceError(salesforceStatus), default);
 
         /// <summary>
         /// Converts an entity into a successful result.
