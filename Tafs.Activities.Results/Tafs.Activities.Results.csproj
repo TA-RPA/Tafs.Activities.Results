@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
       <TargetFramework>net461</TargetFramework>
-	  <PackageVersion>3.0.6</PackageVersion>
+	  <PackageVersion>3.0.8</PackageVersion>
 	  <Description>A basic implementation of a descriptive algebraic data type for C#. Remora.Results, but for NetFx.</Description>
-	  <PackageReleaseNotes>Set maximum target version.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Add additional constructor to Verification Portal Error.</PackageReleaseNotes>
 	  <PackageTags>$(PackageTags);algebraic datatype;result;results</PackageTags>
   </PropertyGroup>
 
