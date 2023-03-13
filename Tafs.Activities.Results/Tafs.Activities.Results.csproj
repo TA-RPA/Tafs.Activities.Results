@@ -1,11 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
       <TargetFramework>net461</TargetFramework>
-	  <PackageVersion>3.0.5</PackageVersion>
+	  <PackageVersion>3.0.11</PackageVersion>
 	  <Description>A basic implementation of a descriptive algebraic data type for C#. Remora.Results, but for NetFx.</Description>
-	  <PackageReleaseNotes>Set maximum target version.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Remove inappropriate Result operator on Salesforce Error. Add explicit converter to Salesforce Error.</PackageReleaseNotes>
 	  <PackageTags>$(PackageTags);algebraic datatype;result;results</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="UiPath.Salesforce.Activities" Version="1.5.2" />
+  </ItemGroup>
 
 </Project>

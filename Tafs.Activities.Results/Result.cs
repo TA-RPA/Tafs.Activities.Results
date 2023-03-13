@@ -9,6 +9,7 @@
 
 using System;
 using Tafs.Activities.Results.Errors;
+using UiPath.Salesforce.Activities.Models;
 
 #pragma warning disable SA1402
 
